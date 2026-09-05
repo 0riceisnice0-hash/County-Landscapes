@@ -1,17 +1,23 @@
 # County Landscapes
 
-A responsive static website for GitHub Pages. Plain HTML, CSS and JavaScript; no runtime dependencies.
+A responsive static website for GitHub Pages. Plain HTML, CSS and JavaScript; no runtime dependencies. Includes a homepage and five dedicated service guides.
+
+## Editing
+
+`content.mjs` contains each service's copy, questions, checklist and enquiry guidance. `generate.mjs` holds the shared header/footer, homepage and service page layouts. `styles.css` contains the responsive design. `script.js` handles mobile navigation, service selection and Formspree submission.
+
+The build generates `index.html`, the five service HTML files, `form-prompts.js` and `sitemap.xml`. Edit the source modules, not those generated files, then run `npm run check`. `privacy.html` is edited directly.
 
 ## Publish
 
 The workflow in `.github/workflows/pages.yml` builds and deploys pushes to `main`. In repository **Settings → Pages**, select **GitHub Actions** as the source if Pages has not already been enabled. The expected address is https://0riceisnice0-hash.github.io/County-Landscapes/.
 
-Run `npm run check` to check JavaScript syntax, local links, assets and anchors, and build `dist/`. Preview with `python -m http.server 4173 --directory dist`.
+Run `npm run check` to check JavaScript syntax, enquiry behaviour, local links, assets and same-page/cross-page anchors, and build `dist/`. Preview with `python -m http.server 4173 --directory dist`.
 
 ## Connect the enquiry form
 
 1. Create the business's Formspree form and verify its recipient.
-2. Replace `https://formspree.io/f/YOUR_FORM_ID` in `index.html` with that form's endpoint.
+2. Replace `https://formspree.io/f/YOUR_FORM_ID` in `generate.mjs` with that form's endpoint and rebuild.
 3. Review and update `privacy.html` to describe the enabled form and the business's actual data handling.
 4. Test receipt of an enquiry before relying on the form.
 
