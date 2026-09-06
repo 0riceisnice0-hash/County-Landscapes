@@ -1,5 +1,7 @@
 import { mkdir, cp, readFile, access, readdir } from 'node:fs/promises';
 import path from 'node:path';
+const css = await readFile('styles.css', 'utf8');
+if (/^\s*\+(?=[.@#])/m.test(css)) throw new Error('Invalid CSS: stray patch marker before selector or media rule');
 await import('./generate.mjs');
 const pages = (await readdir('.')).filter(file => file.endsWith('.html'));
 for (const page of pages) {
