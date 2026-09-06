@@ -47,3 +47,6 @@ Temporary inspiration photographs are copied unchanged from the user's `0riceisn
 They are labelled as inspiration, not County Landscapes completed work. Replace with approved County photos and update alt text/captions when available. Do not copy Dee'z Gardens reviews or credentials into this site.
 
 Additional temporary images copied unchanged from the same DeezGarden repository: assets/trees.jpg from public/assets/images/chainsaw.jpg; assets/cleaning.jpg from public/assets/images/jet-washing.jpg. These are illustrative assets, not County staff or projects, and captions state this.
+
+Current people-free image selection (replaces the previous temporary set): garden-landscaping.jpg from service-garden-renovations.jpg; fenced-garden.webp from projects-2026/gravel-paving-raised-beds-after.webp; garden-trees.jpg from contact-us.jpg; patio-cleaning.jpg from jet-washing-3.jpg. All source files are under DeezGarden/public/assets/images and were visually inspected before use.
+

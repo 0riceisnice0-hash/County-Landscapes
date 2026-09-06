@@ -1,7 +1,7 @@
 const esc = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
 const phone = 'tel:+447526024115';
 const email = 'mailto:countylandscaping77@gmail.com';
-export const serviceImage = s => s.slug === 'tree-surgery' ? 'trees.jpg' : s.slug === 'pressure-washing' ? 'cleaning.jpg' : s.image;
+export const serviceImage = s => ({ landscaping: 'garden-landscaping.jpg', fencing: 'fenced-garden.webp', 'tree-surgery': 'garden-trees.jpg', 'pressure-washing': 'patio-cleaning.jpg' })[s.slug];
 const photo = (s, eager = false) => `<figure class="lead-photo"><img src="assets/${serviceImage(s)}" alt="${esc(s.name)} — temporary illustrative photography from Dee’z Gardens" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'}><figcaption>Illustrative photo · County project photos coming soon</figcaption></figure>`;
 const actions = (target = '#contact', label = 'Get a free quote') => `<div class="lead-actions"><a class="button button-gold" href="${target}">${label} ↗</a><a class="button button-dark" href="${phone}">Call 07526 024115</a></div>`;
 const band = (target = '#contact') => `<section class="lead-band"><div class="wrap"><div><h2>Need a hand with your garden?</h2><p>One job or a complete change — call for a free quote.</p></div>${actions(target)}</div></section>`;
