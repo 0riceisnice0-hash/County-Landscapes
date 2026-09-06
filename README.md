@@ -4,7 +4,7 @@ A responsive static website for GitHub Pages. Plain HTML, CSS and JavaScript; no
 
 ## Editing
 
-`content.mjs` contains each service's copy, questions, checklist and enquiry guidance. `generate.mjs` holds the shared header/footer, homepage and service page layouts. `styles.css` contains the responsive design. `script.js` handles mobile navigation, service selection and Formspree submission.
+`content.mjs` contains each service's copy, questions, checklist and enquiry guidance. `generate.mjs` holds shared document and contact markup. `lead-pages.mjs` holds the image-led homepage, service cards, service pages and Services dropdown. Dedicated services.html and contact.html pages are generated too. `styles.css` contains the responsive design. `script.js` handles mobile navigation, service selection and Formspree submission.
 
 The build generates `index.html`, the four category HTML files and a legacy hedge service page, `form-prompts.js` and `sitemap.xml`. Edit the source modules, not those generated files, then run `npm run check`. `privacy.html` is edited directly.
 
@@ -45,3 +45,5 @@ Temporary inspiration photographs are copied unchanged from the user's `0riceisn
 | makeover.webp | small-garden-makeover-after.webp |
 
 They are labelled as inspiration, not County Landscapes completed work. Replace with approved County photos and update alt text/captions when available. Do not copy Dee'z Gardens reviews or credentials into this site.
+
+Additional temporary images copied unchanged from the same DeezGarden repository: assets/trees.jpg from public/assets/images/chainsaw.jpg; assets/cleaning.jpg from public/assets/images/jet-washing.jpg. These are illustrative assets, not County staff or projects, and captions state this.

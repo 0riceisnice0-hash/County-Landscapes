@@ -2,8 +2,22 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import { readFile } from 'node:fs/promises';
+import { services } from '../content.mjs';
 const code = await readFile(new URL('../script.js', import.meta.url), 'utf8');
 const prompts = await readFile(new URL('../form-prompts.js', import.meta.url), 'utf8');
+
+test('every category has a hero photo, immediate call and quote links, and its own enquiry form', async () => {
+  for (const service of services) {
+    const html = await readFile(new URL(`../${service.slug}.html`, import.meta.url), 'utf8');
+    const hero = html.slice(html.indexOf('<section class="wrap lead-hero'), html.indexOf('id="category-services"'));
+    assert.match(hero, /<img /);
+    assert.match(hero, /href="tel:\+447526024115"/);
+    assert.match(hero, /href="#contact"/);
+    assert.match(html, /id="quote-form"/);
+    assert.match(html, /<option selected>/);
+    assert.doesNotMatch(html, /class="huge-number"|class="service-jump"|class="chapter"/);
+  }
+});
 
 function setup({ configured = false, query = '', outcome = 'success' } = {}) {
   const handlers = {};
