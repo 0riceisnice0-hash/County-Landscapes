@@ -1,12 +1,12 @@
 # County Landscapes
 
-A responsive static website for GitHub Pages. Plain HTML, CSS and JavaScript; no runtime dependencies. Includes a homepage and five dedicated service guides.
+A responsive static website for GitHub Pages. Plain HTML, CSS and JavaScript; no runtime dependencies. Includes a homepage and four service category guides.
 
 ## Editing
 
 `content.mjs` contains each service's copy, questions, checklist and enquiry guidance. `generate.mjs` holds the shared header/footer, homepage and service page layouts. `styles.css` contains the responsive design. `script.js` handles mobile navigation, service selection and Formspree submission.
 
-The build generates `index.html`, the five service HTML files, `form-prompts.js` and `sitemap.xml`. Edit the source modules, not those generated files, then run `npm run check`. `privacy.html` is edited directly.
+The build generates `index.html`, the four category HTML files and a legacy hedge service page, `form-prompts.js` and `sitemap.xml`. Edit the source modules, not those generated files, then run `npm run check`. `privacy.html` is edited directly.
 
 ## Publish
 
@@ -26,9 +26,10 @@ The form is intentionally disabled until a real endpoint is configured. It never
 ## Content to confirm
 
 - Service area: currently location-neutral; confirm towns/postcodes before adding local copy.
-- Phone: 07526 024115, transcribed from the supplied van photograph.
+- Phone: 07526 024115, confirmed by the supplied van photograph and leaflet.
+- Email: countylandscaping77@gmail.com, transcribed from the supplied leaflet.
 - TikTok: @countylandscapes, transcribed from the van.
-- Services: landscaping, tree surgery & felling, fencing, hedge trimming, pressure washing.
+- Services: grouped into Gardens & landscaping, Fencing & boundaries, Trees & hedges and Outdoor cleaning, based on the supplied leaflet and owner messages. All leaflet services are listed on the category pages.
 - No invented reviews, accreditations, trading history, insurance statements or job totals.
 
 ## Images

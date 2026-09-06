@@ -14,7 +14,9 @@ function updateServicePrompt() {
   message.placeholder = guidance;
 }
 if (serviceSelect) {
-  const requested = new URLSearchParams(window.location.search).get('service');
+  const original = new URLSearchParams(window.location.search).get('service');
+  const legacy = { Fencing: 'Fencing & boundaries', Landscaping: 'Gardens & landscaping', 'Tree surgery & felling': 'Trees & hedges', 'Hedge trimming': 'Trees & hedges', 'Pressure washing': 'Outdoor cleaning' };
+  const requested = legacy[original] || original;
   if ([...serviceSelect.options].some(option => option.value === requested)) serviceSelect.value = requested;
   serviceSelect.addEventListener('change', updateServicePrompt);
   updateServicePrompt();

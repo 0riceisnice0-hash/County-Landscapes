@@ -7,7 +7,7 @@ const prompts = await readFile(new URL('../form-prompts.js', import.meta.url), '
 
 function setup({ configured = false, query = '', outcome = 'success' } = {}) {
   const handlers = {};
-  const select = { value: '', options: ['', 'Fencing', 'Landscaping'].map(value => ({ value })), addEventListener(type, fn) { handlers.change = fn; } };
+  const select = { value: '', options: ['', 'Fencing & boundaries', 'Gardens & landscaping', 'Trees & hedges', 'Outdoor cleaning'].map(value => ({ value })), addEventListener(type, fn) { handlers.change = fn; } };
   const button = { disabled: true };
   const status = { textContent: '' };
   const prompt = { textContent: '' };
@@ -41,8 +41,8 @@ test('placeholder form cannot send or report success', async () => {
 });
 test('service link preselects the enquiry and relevant guidance', () => {
   const page = setup({ query: '?service=Fencing' });
-  assert.equal(page.select.value, 'Fencing');
-  assert.match(page.prompt.textContent, /fence run/);
+  assert.equal(page.select.value, 'Fencing & boundaries');
+  assert.match(page.prompt.textContent, /garden wall/);
   assert.equal(page.message.value, 'A fence along the back garden');
 });
 test('unknown query values are not inserted into the form', () => {
