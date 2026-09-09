@@ -21,7 +21,7 @@ for (const page of pages) {
   }
 }
 await mkdir('dist', { recursive: true });
-for (const file of [...pages, 'styles.css', 'script.js', 'form-prompts.js', 'sitemap.xml', '.nojekyll', 'assets']) {
+for (const file of [...pages, 'styles.css', 'script.js', 'form-prompts.js', 'sitemap.xml', 'robots.txt', '.nojekyll', 'assets']) {
   await cp(file, path.join('dist', file), { recursive: true });
 }
 console.log('Static site built in dist. Local assets and page anchors verified.');

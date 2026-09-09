@@ -6,11 +6,11 @@ A responsive static website for GitHub Pages. Plain HTML, CSS and JavaScript; no
 
 `content.mjs` contains each service's copy, questions, checklist and enquiry guidance. `generate.mjs` holds shared document and contact markup. `lead-pages.mjs` holds the image-led homepage, service cards, service pages and Services dropdown. Dedicated services.html and contact.html pages are generated too. `styles.css` contains the responsive design. `script.js` handles mobile navigation, service selection and Formspree submission.
 
-The build generates `index.html`, the four category HTML files and a legacy hedge service page, `form-prompts.js` and `sitemap.xml`. Edit the source modules, not those generated files, then run `npm run check`. `privacy.html` is edited directly.
+The build generates every HTML page, including privacy and the branded 404 page, plus `form-prompts.js`, `sitemap.xml` and `robots.txt`. Edit the source modules, not the generated files, then run `npm run check`.
 
 ## Publish
 
-The workflow in `.github/workflows/pages.yml` builds and deploys pushes to `main`. In repository **Settings → Pages**, select **GitHub Actions** as the source if Pages has not already been enabled. The expected address is https://0riceisnice0-hash.github.io/County-Landscapes/.
+The workflow in `.github/workflows/pages.yml` builds and deploys pushes to `main`. The live address and canonical origin are https://countylandscape.co.uk/.
 
 Run `npm run check` to check JavaScript syntax, enquiry behaviour, local links, assets and same-page/cross-page anchors, and build `dist/`. Preview with `python -m http.server 4173 --directory dist`.
 
@@ -33,7 +33,7 @@ JavaScript handles loading, success and failure states and preserves entries aft
 
 `assets/logo.png` is the logo supplied by the user, copied unchanged.
 
-Temporary inspiration photographs are copied unchanged from the user's `0riceisnice0-hash/DeezGarden` repository:
+Photographs are copied from the user's `0riceisnice0-hash/DeezGarden` repository with permission:
 
 | Local file | Original under `public/assets/images/projects-2026/` |
 | --- | --- |
@@ -41,9 +41,5 @@ Temporary inspiration photographs are copied unchanged from the user's `0riceisn
 | patio.webp | porcelain-patio-path-after.webp |
 | makeover.webp | small-garden-makeover-after.webp |
 
-They are labelled as inspiration, not County Landscapes completed work. Replace with approved County photos and update alt text/captions when available. Do not copy Dee'z Gardens reviews or credentials into this site.
-
-Additional temporary images copied unchanged from the same DeezGarden repository: assets/trees.jpg from public/assets/images/chainsaw.jpg; assets/cleaning.jpg from public/assets/images/jet-washing.jpg. These are illustrative assets, not County staff or projects, and captions state this.
-
-Current people-free image selection (replaces the previous temporary set): garden-landscaping.jpg from service-garden-renovations.jpg; fenced-garden.webp from projects-2026/gravel-paving-raised-beds-after.webp; garden-trees.jpg from contact-us.jpg; patio-cleaning.jpg from jet-washing-3.jpg. All source files are under DeezGarden/public/assets/images and were visually inspected before use.
+The live people-free selection is: `garden-landscaping.jpg` from `service-garden-renovations.jpg`; `fenced-garden.webp` from `projects-2026/gravel-paving-raised-beds-after.webp`; `garden-trees.jpg` from `contact-us.jpg`; and `patio-cleaning.jpg` from `jet-washing-3.jpg`. All source files are under `DeezGarden/public/assets/images` and were visually inspected before use.
 

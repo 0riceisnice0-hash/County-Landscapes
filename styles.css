@@ -37,3 +37,13 @@ h1,h2,h3{font-family:var(--sans);font-weight:700;letter-spacing:-1px}h1{font-siz
 
 .lead-photo img[src='assets/makeover.webp']{object-position:center 18%}
 
+/* Useful recovery page for broken or outdated links. */
+.not-found{min-height:58vh;display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center}
+.not-found .lead{max-width:650px;margin-top:22px;font-size:18px}
+.not-found-phone{display:inline-block;margin-top:22px;font-size:19px;font-weight:700;text-decoration:underline;text-underline-offset:5px}
+.not-found-links{background:var(--cream);border:1px solid var(--line);border-radius:7px;padding:32px}
+.not-found-links h2{font-size:28px;margin-bottom:17px}
+.not-found-links a{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:15px 0;border-top:1px solid #c9cebf;font-weight:600}
+.not-found-links a span:last-child{font-size:21px}
+@media(max-width:680px){.not-found{min-height:auto;grid-template-columns:1fr;gap:34px}.not-found .lead{font-size:16px}.not-found-links{padding:25px}.not-found-links h2{font-size:25px}}
+
