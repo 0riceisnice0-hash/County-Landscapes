@@ -16,12 +16,9 @@ Run `npm run check` to check JavaScript syntax, enquiry behaviour, local links, 
 
 ## Connect the enquiry form
 
-1. Create the business's Formspree form and verify its recipient.
-2. Replace `https://formspree.io/f/YOUR_FORM_ID` in `generate.mjs` with that form's endpoint and rebuild.
-3. Review and update `privacy.html` to describe the enabled form and the business's actual data handling.
-4. Test receipt of an enquiry before relying on the form.
+The enquiry form is connected to Formspree form `mjgnolow`. Its endpoint is stored in `generate.mjs`. Confirm the recipient in Formspree and test receipt of an enquiry before relying on the form.
 
-The form is intentionally disabled until a real endpoint is configured. It never claims a placeholder submission succeeded. Telephone links already work. JavaScript automatically enables the form when the endpoint is replaced, handles loading, success and failure states, and preserves entries after a failed send.
+JavaScript handles loading, success and failure states and preserves entries after a failed send. The form also retains a standard HTML action and method so it can submit without JavaScript.
 
 ## Content to confirm
 

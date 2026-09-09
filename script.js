@@ -36,7 +36,7 @@ if (serviceSelect) {
 const year = document.querySelector('#year');
 if (year) year.textContent = new Date().getFullYear();
 
-// Set the real Formspree URL in index.html. This detects it automatically.
+// Detect the configured Formspree endpoint and enhance the standard HTML form.
 const form = document.querySelector('#quote-form');
 if (form) {
   const button = form.querySelector('[type="submit"]');

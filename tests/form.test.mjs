@@ -20,6 +20,17 @@ test('every category has a hero photo, immediate call and quote links, and its o
   }
 });
 
+test('published forms use the configured Formspree endpoint and named fields', async () => {
+  for (const page of ['index.html', 'contact.html', ...services.map(service => `${service.slug}.html`)]) {
+    const html = await readFile(new URL(`../${page}`, import.meta.url), 'utf8');
+    assert.match(html, /action="https:\/\/formspree\.io\/f\/mjgnolow" method="POST"/);
+    for (const field of ['name', 'phone', 'email', 'postcode', 'service', 'message', 'timing']) {
+      assert.match(html, new RegExp(`name="${field}"`));
+    }
+    assert.doesNotMatch(html, /YOUR_FORM_ID|Online enquiries are coming soon/);
+  }
+});
+
 function setup({ configured = false, query = '', outcome = 'success' } = {}) {
   const handlers = {};
   const select = { value: '', options: ['', 'Fencing & boundaries', 'Gardens & landscaping', 'Trees & hedges', 'Outdoor cleaning'].map(value => ({ value })), addEventListener(type, fn) { handlers.change = fn; } };
