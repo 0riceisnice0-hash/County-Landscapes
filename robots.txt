@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
 
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 Sitemap: https://countylandscape.co.uk/sitemap.xml
+Sitemap: https://countylandscape.co.uk/image-sitemap.xml

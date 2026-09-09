@@ -21,7 +21,7 @@ for (const page of pages) {
   }
 }
 await mkdir('dist', { recursive: true });
-for (const file of [...pages, 'styles.css', 'script.js', 'form-prompts.js', 'sitemap.xml', 'robots.txt', '.nojekyll', 'assets']) {
+for (const file of [...pages, 'styles.css', 'script.js', 'form-prompts.js', 'sitemap.xml', 'image-sitemap.xml', 'robots.txt', 'site.webmanifest', 'favicon.ico', 'favicon-16x16.png', 'favicon-32x32.png', 'apple-touch-icon.png', 'android-chrome-192x192.png', 'android-chrome-512x512.png', '.nojekyll', 'assets']) {
   await cp(file, path.join('dist', file), { recursive: true });
 }
 console.log('Static site built in dist. Local assets and page anchors verified.');
