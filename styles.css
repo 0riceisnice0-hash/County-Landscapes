@@ -21,6 +21,7 @@
 .email-link{overflow-wrap:anywhere}.contact-email{display:inline-block;margin-top:18px;text-decoration:underline;text-underline-offset:5px;font-size:15px}
 .footer-contact>a.email-link{font-size:13px;margin-top:13px}
 .footer-contact>a[href*="tiktok"]{font-size:12px;margin-top:15px}
+.contact-hours{display:block;margin-top:12px;color:#c4cfbf}
 .related-services>div{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:680px){.category-job-grid{grid-template-columns:1fr}.category-job-grid h3{font-size:28px}.category-job-grid p{font-size:15px}.service-jump .wrap{flex-wrap:wrap;justify-content:start;gap:14px 24px}.related-services>div{grid-template-columns:1fr}.footer-contact>a.email-link{font-size:14px}}
 

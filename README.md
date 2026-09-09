@@ -24,7 +24,9 @@ JavaScript handles loading, success and failure states and preserves entries aft
 
 ## Content to confirm
 
-- Service area: currently location-neutral; confirm towns/postcodes before adding local copy.
+- Service area: Leicestershire, confirmed from the Google Business Profile supplied by the user.
+- Customers: residential and commercial properties; one-off projects and regular maintenance.
+- Opening hours: 24 hours Monday–Saturday; closed Sunday, matching the supplied Google Business Profile.
 - Phone: 07526 024115, confirmed by the supplied van photograph and leaflet.
 - Email: countylandscaping77@gmail.com, transcribed from the supplied leaflet.
 - TikTok: @countylandscapes, transcribed from the van.

@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 
-const indexablePages = ['index.html', 'services.html', 'contact.html', 'landscaping.html', 'fencing.html', 'tree-surgery.html', 'pressure-washing.html', 'privacy.html'];
+const indexablePages = ['index.html', 'services.html', 'areas.html', 'contact.html', 'landscaping.html', 'fencing.html', 'tree-surgery.html', 'pressure-washing.html', 'privacy.html'];
 const pages = [...indexablePages, 'hedge-trimming.html', '404.html'];
 const origin = 'https://countylandscape.co.uk/';
 const regexEscape = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -70,4 +70,14 @@ test('service pages expose Service and FAQ entities', async () => {
     assert.match(html, /"@type":"FAQPage"/);
     assert.match(html, /"@type":"OfferCatalog"/);
   }
+});
+
+test('confirmed Google Business Profile facts are represented consistently', async () => {
+  const home = await readFile('index.html', 'utf8');
+  const areas = await readFile('areas.html', 'utf8');
+  assert.match(home, /"areaServed":\{"@type":"AdministrativeArea","name":"Leicestershire"/);
+  assert.match(home, /"dayOfWeek":\["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"\]/);
+  assert.match(home, /Open 24 hours Monday–Saturday/);
+  assert.match(areas, /residential and commercial properties throughout Leicestershire/i);
+  assert.match(areas, /"@type":"FAQPage"/);
 });
