@@ -16,6 +16,7 @@ test('every category has a hero photo, immediate call and quote links, and its o
     assert.match(html, /id="quote-form"/);
     assert.match(html, /<option selected>/);
     assert.doesNotMatch(html, /class="huge-number"|class="service-jump"|class="chapter"/);
+    assert.doesNotMatch(html, /Illustrative photo|County project photos coming soon|temporary illustrative photography/);
   }
 });
 

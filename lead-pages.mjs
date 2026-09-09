@@ -2,7 +2,13 @@ const esc = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').re
 const phone = 'tel:+447526024115';
 const email = 'mailto:countylandscaping77@gmail.com';
 export const serviceImage = s => ({ landscaping: 'garden-landscaping.jpg', fencing: 'fenced-garden.webp', 'tree-surgery': 'garden-trees.jpg', 'pressure-washing': 'patio-cleaning.jpg' })[s.slug];
-const photo = (s, eager = false) => `<figure class="lead-photo"><img src="assets/${serviceImage(s)}" alt="${esc(s.name)} — temporary illustrative photography from Dee’z Gardens" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'}><figcaption>Illustrative photo · County project photos coming soon</figcaption></figure>`;
+const serviceImageAlt = s => ({
+  landscaping: 'Landscaped garden with a lawn, planting and curved borders',
+  fencing: 'Landscaped garden with dark timber fencing, gravel and raised beds',
+  'tree-surgery': 'Established garden with lawn, trees and planted borders',
+  'pressure-washing': 'Patio paving shown before and after pressure washing'
+})[s.slug];
+const photo = (s, eager = false) => `<figure class="lead-photo"><img src="assets/${serviceImage(s)}" alt="${serviceImageAlt(s)}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'}></figure>`;
 const actions = (target = '#contact', label = 'Get a free quote') => `<div class="lead-actions"><a class="button button-gold" href="${target}">${label} ↗</a><a class="button button-dark" href="${phone}">Call 07526 024115</a></div>`;
 const band = (target = '#contact') => `<section class="lead-band"><div class="wrap"><div><h2>Need a hand with your garden?</h2><p>One job or a complete change — call for a free quote.</p></div>${actions(target)}</div></section>`;
 export const cards = services => `<div class="lead-card-grid">${services.map(s=>`<article class="lead-card"><a href="${s.slug}.html" aria-label="Explore ${esc(s.name)}">${photo(s)}</a><div class="lead-card-body"><h3><a href="${s.slug}.html">${esc(s.name)}</a></h3><p>${s.summary}</p><ul>${s.jobs.map(([name])=>`<li>${esc(name)}</li>`).join('')}</ul><div class="card-actions"><a class="button button-dark" href="${s.slug}.html">View services ↗</a><a class="underlink" href="contact.html?service=${encodeURIComponent(s.name)}#contact">Get a free quote ↗</a></div></div></article>`).join('')}</div>`;
