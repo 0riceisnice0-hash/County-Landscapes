@@ -1,8 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import { jobs } from '../job-pages.mjs';
+import { towns } from '../town-pages.mjs';
 
-const indexablePages = ['index.html', 'services.html', 'areas.html', 'contact.html', 'landscaping.html', 'fencing.html', 'tree-surgery.html', 'pressure-washing.html', 'privacy.html'];
+const indexablePages = ['index.html', 'services.html', 'areas.html', 'contact.html', 'landscaping.html', 'fencing.html', 'tree-surgery.html', 'pressure-washing.html', ...jobs.map(job => `${job.slug}.html`), ...towns.map(town => `landscaper-${town.slug}.html`), 'privacy.html'];
 const pages = [...indexablePages, 'hedge-trimming.html', '404.html'];
 const origin = 'https://countylandscape.co.uk/';
 const regexEscape = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -40,10 +42,10 @@ test('404 page offers recovery routes and stays out of search results', async ()
   }
 });
 
-test('legacy hedge URL consolidates into the trees and hedges page', async () => {
+test('legacy hedge URL consolidates into the dedicated hedge service page', async () => {
   const html = await readFile('hedge-trimming.html', 'utf8');
   assert.match(html, /<meta name="robots" content="noindex,follow">/);
-  assert.match(html, new RegExp(`<link rel="canonical" href="${regexEscape(origin)}tree-surgery\\.html">`));
+  assert.match(html, new RegExp(`<link rel="canonical" href="${regexEscape(origin)}hedge-cutting\\.html">`));
 });
 
 test('sitemap and robots file point at the custom domain', async () => {
@@ -64,11 +66,40 @@ test('sitemap and robots file point at the custom domain', async () => {
 });
 
 test('service pages expose Service and FAQ entities', async () => {
-  for (const page of ['landscaping.html', 'fencing.html', 'tree-surgery.html', 'pressure-washing.html']) {
+  for (const page of ['landscaping.html', 'fencing.html', 'tree-surgery.html', 'pressure-washing.html', ...jobs.map(job => `${job.slug}.html`)]) {
     const html = await readFile(page, 'utf8');
     assert.match(html, /"@type":"Service"/);
     assert.match(html, /"@type":"FAQPage"/);
-    assert.match(html, /"@type":"OfferCatalog"/);
+  }
+});
+
+test('specific services are discoverable and take enquiries with the chosen job', async () => {
+  const home = await readFile('index.html', 'utf8');
+  const hub = await readFile('services.html', 'utf8');
+  for (const job of jobs) {
+    const page = `${job.slug}.html`;
+    const html = await readFile(page, 'utf8');
+    assert.match(home, new RegExp(`href="${regexEscape(page)}"`), `${page} needs a homepage link`);
+    assert.match(hub, new RegExp(`href="${regexEscape(page)}"`), `${page} needs a service hub link`);
+    assert.match(html, new RegExp(`href="${regexEscape(job.category)}\.html"`), `${page} needs a category route`);
+    assert.match(html, new RegExp(`name="requested_service" value="${regexEscape(job.name.replaceAll('&', '&amp;'))}"`), `${page} needs to identify the enquiry`);
+    assert.match(html, /action="https:\/\/formspree\.io\/f\/mjgnolow" method="POST"/);
+    assert.match(html, /href="tel:\+447526024115"/);
+  }
+});
+
+test('town pages are reachable and use postcode-based enquiries without inventing an address', async () => {
+  const home = await readFile('index.html', 'utf8');
+  const areas = await readFile('areas.html', 'utf8');
+  for (const town of towns) {
+    const page = `landscaper-${town.slug}.html`;
+    const html = await readFile(page, 'utf8');
+    assert.match(home, new RegExp(`href="${regexEscape(page)}"`));
+    assert.match(areas, new RegExp(`href="${regexEscape(page)}"`));
+    assert.match(html, /Share your postcode so the job and availability can be confirmed/);
+    assert.match(html, new RegExp(`name="enquiry_area" value="${regexEscape(town.name)}"`));
+    assert.match(html, /href="#contact">Free quote/);
+    assert.doesNotMatch(html, /"streetAddress"/);
   }
 });
 

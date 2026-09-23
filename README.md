@@ -1,14 +1,14 @@
 # County Landscapes
 
-A responsive static website for GitHub Pages. Plain HTML, CSS and JavaScript; no runtime dependencies. Includes a homepage and four service category guides.
+A responsive static website for GitHub Pages. Plain HTML, CSS and JavaScript; no runtime dependencies. Includes a homepage, four service categories, nine individual service pages and twelve Leicestershire town pages.
 
 ## Editing
 
-`content.mjs` contains each service's copy, questions, checklist and enquiry guidance. `generate.mjs` holds shared document and contact markup. `lead-pages.mjs` holds the image-led homepage, service cards, service pages and Services dropdown. Dedicated services.html and contact.html pages are generated too. `styles.css` contains the responsive design. `script.js` handles mobile navigation, service selection and Formspree submission.
+`content.mjs` contains the category copy, questions, checklists and enquiry guidance. `job-pages.mjs` contains confirmed individual services and their landing pages. `town-pages.mjs` contains town-specific copy and the town directory. `generate.mjs` holds shared document and contact markup. `lead-pages.mjs` holds the image-led homepage, category pages and Services dropdown. `styles.css` contains the responsive design. `script.js` handles mobile navigation, service selection and Formspree submission.
 
 The build generates every HTML page, including privacy and the branded 404 page, plus `form-prompts.js`, the page and image sitemaps, `robots.txt`, and the installable-site manifest. Edit the source modules, not the generated files, then run `npm run check`.
 
-The shared document generator provides the SEO architecture used across the site: canonical URLs, UK locale and crawl directives, large social cards, LocalBusiness/HomeAndConstructionBusiness identity, WebSite and WebPage entities, breadcrumb data, a service catalogue, per-category Service and FAQ entities, sitemap priorities, and a separate image sitemap. Business location data is deliberately omitted until the service towns or postcodes are confirmed.
+The shared document generator provides the SEO architecture used across the site: canonical URLs, UK locale and crawl directives, large social cards, LocalBusiness/HomeAndConstructionBusiness identity, WebSite and WebPage entities, breadcrumb data, a service catalogue, Service entities, sitemaps and a separate image sitemap. The business has no public shop address; town pages use its stated Leicestershire service area and ask visitors to confirm their postcode. They do not claim a local office or completed project in each town.
 
 ## Publish
 
@@ -31,6 +31,8 @@ JavaScript handles loading, success and failure states and preserves entries aft
 - Email: countylandscaping77@gmail.com, transcribed from the supplied leaflet.
 - TikTok: @countylandscapes, transcribed from the van.
 - Services: grouped into Gardens & landscaping, Fencing & boundaries, Trees & hedges and Outdoor cleaning, based on the supplied leaflet and owner messages. All leaflet services are listed on the category pages.
+- Driveways: pressure washing only. Concrete driveway installation is not claimed.
+- Towns: Leicester, Loughborough, Hinckley, Market Harborough, Melton Mowbray, Coalville, Ashby-de-la-Zouch, Lutterworth, Oadby, Wigston, Blaby and Shepshed. Nearby settlement names were checked against [Leicestershire County Council](https://resources.leicestershire.gov.uk/adult-social-care-and-health/market-position-statement/home-care) and [Visit Leicester](https://visitleicester.info/shops-market/shopping-in-leicestershire/). Actual job availability is confirmed by postcode.
 - No invented reviews, accreditations, trading history, insurance statements or job totals.
 
 ## Images
