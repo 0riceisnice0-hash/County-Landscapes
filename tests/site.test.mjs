@@ -19,8 +19,12 @@ test('every public page has complete metadata and one primary heading', async ()
     assert.ok(description.length <= 160, `${page} description should fit a search result`);
     assert.match(html, new RegExp(`<link rel="canonical" href="${regexEscape(origin)}`), `${page} needs the live canonical domain`);
     assert.match(html, /<meta property="og:locale" content="en_GB">/, `${page} needs UK social metadata`);
+    assert.match(html, /<meta property="og:image" content="https:\/\/countylandscape\.co\.uk\/assets\//, `${page} needs an absolute social image`);
     assert.match(html, /<meta name="twitter:card" content="summary_large_image">/, `${page} needs a large social card`);
+    assert.match(html, /<meta name="twitter:image:alt" content="[^"]+">/, `${page} needs social image alt text`);
     assert.match(html, /<link rel="manifest" href="site\.webmanifest">/, `${page} needs the web manifest`);
+    assert.match(html, /<link rel="icon" type="image\/png" sizes="96x96" href="favicon-96x96\.png">/, `${page} needs a search-sized favicon`);
+    assert.match(html, /<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon\.png">/, `${page} needs an iOS icon`);
     assert.match(html, /"@type":"WebSite"/, `${page} needs WebSite schema`);
     assert.match(html, /"@type":"BreadcrumbList"/, `${page} needs breadcrumb schema`);
     for (const [, json] of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)) {
@@ -34,11 +38,46 @@ test('every public page has complete metadata and one primary heading', async ()
 test('404 page offers recovery routes and stays out of search results', async () => {
   const html = await readFile('404.html', 'utf8');
   assert.match(html, /<meta name="robots" content="noindex,follow">/);
+  assert.match(html, /<base href="https:\/\/countylandscape\.co\.uk\/">/, 'nested missing URLs must resolve assets and links from the site root');
+  assert.match(html, /class="skip" href="404\.html#main"/, 'skip link should remain on the 404 page');
+  assert.match(html, /href="404\.html#main">Back to top/, 'footer anchor should remain on the 404 page');
   assert.match(html, /href="\.\/">Go to the homepage/);
   assert.match(html, /href="contact\.html#contact">Get a free quote/);
   assert.match(html, /href="tel:\+447526024115">Call 07526 024115/);
   for (const route of ['landscaping.html', 'fencing.html', 'tree-surgery.html', 'pressure-washing.html']) {
     assert.match(html, new RegExp(`href="${regexEscape(route)}"`));
+  }
+});
+
+test('favicon files and manifest contain legible square icon sizes', async () => {
+  const manifest = JSON.parse(await readFile('site.webmanifest', 'utf8'));
+  assert.equal(manifest.name, 'County Landscapes');
+  for (const [file, size] of [['favicon-16x16.png', 16], ['favicon-32x32.png', 32], ['favicon-48x48.png', 48], ['favicon-96x96.png', 96], ['apple-touch-icon.png', 180], ['android-chrome-192x192.png', 192], ['android-chrome-512x512.png', 512]]) {
+    const png = await readFile(file);
+    assert.equal(png.subarray(0, 8).toString('hex'), '89504e470d0a1a0a', `${file} must be a PNG`);
+    assert.equal(png.readUInt32BE(16), size, `${file} width`);
+    assert.equal(png.readUInt32BE(20), size, `${file} height`);
+  }
+  const ico = await readFile('favicon.ico');
+  assert.equal(ico.readUInt16LE(2), 1, 'favicon.ico must be an icon');
+  assert.ok(ico.readUInt16LE(4) >= 3, 'favicon.ico should include multiple sizes');
+  assert.match(await readFile('favicon.svg', 'utf8'), /<svg/);
+  assert.deepEqual(manifest.icons.map(icon => icon.sizes), ['192x192', '512x512']);
+});
+
+test('indexable pages have unique search titles, descriptions and self canonicals', async () => {
+  const titles = new Set();
+  const descriptions = new Set();
+  for (const page of indexablePages) {
+    const html = await readFile(page, 'utf8');
+    const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
+    const description = html.match(/<meta name="description" content="([^"]+)">/)?.[1];
+    assert.ok(title, `${page} needs a title`);
+    assert.ok(!titles.has(title), `${page} duplicates a title`);
+    assert.ok(!descriptions.has(description), `${page} duplicates a description`);
+    assert.match(html, new RegExp(`<link rel="canonical" href="${regexEscape(origin + (page === 'index.html' ? '' : page))}">`));
+    titles.add(title);
+    descriptions.add(description);
   }
 });
 

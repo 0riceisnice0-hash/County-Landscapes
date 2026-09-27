@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">County Landscapes</title>
+  <rect width="128" height="128" rx="24" fill="#163b2d"/>
+  <path d="M87 36C80 28 70 24 59 24 36 24 21 42 21 64s15 40 38 40c11 0 21-4 28-12" fill="none" stroke="#f8f7f2" stroke-width="19" stroke-linecap="round"/>
+  <circle cx="96" cy="27" r="10" fill="#dfc66f"/>
+</svg>

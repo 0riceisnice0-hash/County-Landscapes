@@ -10,6 +10,8 @@ The build generates every HTML page, including privacy and the branded 404 page,
 
 The shared document generator provides the SEO architecture used across the site: canonical URLs, UK locale and crawl directives, large social cards, LocalBusiness/HomeAndConstructionBusiness identity, WebSite and WebPage entities, breadcrumb data, a service catalogue, Service entities, sitemaps and a separate image sitemap. The business has no public shop address; town pages use its stated Leicestershire service area and ask visitors to confirm their postcode. They do not claim a local office or completed project in each town.
 
+`favicon.svg` is the simplified, legible County mark used for browser tabs; matching PNG/ICO files cover Google Search, older browsers, iOS and Android. The full supplied logo remains in `assets/logo.png`. The 404 page sets a root base URL so styles, images and recovery links still work when the missing URL contains nested folders.
+
 ## Publish
 
 The workflow in `.github/workflows/pages.yml` builds and deploys pushes to `main`. The live address and canonical origin are https://countylandscape.co.uk/.
