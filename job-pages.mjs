@@ -4,7 +4,7 @@ import { responsiveImage } from './responsive-images.mjs';
 export const jobs = [
   {
     slug: 'garden-maintenance', category: 'landscaping', name: 'Garden maintenance & lawn mowing', short: 'Garden maintenance',
-    title: 'Garden Maintenance & Lawn Mowing Leicestershire | County Landscapes',
+    title: 'Garden Maintenance Leicestershire | County Landscapes',
     description: 'Garden maintenance and lawn mowing for homes and commercial properties across Leicestershire. One-off help or a regular programme. Request a free quote.',
     lead: 'Need a hand keeping the garden manageable? Ask County Landscapes about lawn mowing and a maintenance programme built around the jobs your space needs.',
     imageAlt: 'Landscaped garden with a healthy lawn, planting and curved borders',
@@ -34,7 +34,7 @@ export const jobs = [
   },
   {
     slug: 'turf-laying', category: 'landscaping', name: 'Turf supply & laying', short: 'Turf laying',
-    title: 'Turf Supply & Laying Leicestershire | County Landscapes',
+    title: 'Turf Laying Leicestershire | County Landscapes',
     description: 'New lawn turf supplied and installed in Leicestershire. Discuss ground preparation, access and the area you want to cover. Request a free quote.',
     lead: 'Starting a lawn from scratch or replacing an area that has seen better days? County Landscapes supplies and installs turf for new lawns across Leicestershire.',
     imageAlt: 'Neat green lawn with planted borders in a landscaped garden',
@@ -49,7 +49,7 @@ export const jobs = [
   },
   {
     slug: 'patio-installation', category: 'landscaping', name: 'Patios & slabbing', short: 'Patio installation',
-    title: 'Patio Installation & Slabbing Leicestershire | County Landscapes',
+    title: 'Patio Installation Leicestershire | County Landscapes',
     description: 'Patio installation and garden slabbing across Leicestershire. Discuss your space, access and preferred finish with County Landscapes. Free quotes.',
     lead: 'A patio can make the space beside your house or at the end of the garden more useful. County Landscapes offers patios and slabbing as part of its landscaping work.',
     imageAlt: 'Landscaped garden with a paved area adjoining a lawn',
@@ -64,7 +64,7 @@ export const jobs = [
   },
   {
     slug: 'fence-installation', category: 'fencing', name: 'Fence installation & repairs', short: 'Fencing',
-    title: 'Fence Installation & Repairs Leicestershire | County Landscapes',
+    title: 'Fencing & Repairs Leicestershire | County Landscapes',
     description: 'Garden fence installation and repairs across Leicestershire. New runs, replacement sections and existing fence repairs. Ask County Landscapes for a free quote.',
     lead: 'Whether you need a new boundary or attention to an existing fence, County Landscapes can discuss fence installation and repairs for your garden.',
     imageAlt: 'Landscaped garden enclosed by dark timber fencing',
@@ -79,7 +79,7 @@ export const jobs = [
   },
   {
     slug: 'hedge-cutting', category: 'tree-surgery', name: 'Hedge cutting & removal', short: 'Hedge care',
-    title: 'Hedge Cutting, Pruning & Removal Leicestershire | County Landscapes',
+    title: 'Hedge Cutting & Removal Leicestershire | County Landscapes',
     description: 'Hedge cutting, pruning and removal for gardens across Leicestershire. Tell County Landscapes the height, length and access for a free quote.',
     lead: 'A tidy-up, a reduction or complete hedge removal each calls for a different plan. County Landscapes can discuss the right scope for the hedge and the space around it.',
     imageAlt: 'Established garden with trees, planting and neat outdoor space',
@@ -94,7 +94,7 @@ export const jobs = [
   },
   {
     slug: 'tree-removal', category: 'tree-surgery', name: 'Tree surgery & removal', short: 'Tree removal',
-    title: 'Tree Surgery & Removal Leicestershire | County Landscapes',
+    title: 'Tree Removal Leicestershire | County Landscapes',
     description: 'Tree lopping, surgery and removal across Leicestershire. Discuss the tree, access and surrounding structures with County Landscapes. Free quotes.',
     lead: 'If a tree has outgrown its space or needs attention, County Landscapes can discuss tree lopping and removal in the context of your property.',
     imageAlt: 'Established trees and lawn in a planted garden',
@@ -109,7 +109,7 @@ export const jobs = [
   },
   {
     slug: 'stump-grinding', category: 'tree-surgery', name: 'Stump grinding & root removal', short: 'Stump grinding',
-    title: 'Stump Grinding & Root Removal Leicestershire | County Landscapes',
+    title: 'Stump Grinding Leicestershire | County Landscapes',
     description: 'Stump grinding and root removal across Leicestershire. Clear the way for the next use of your garden. Ask County Landscapes for a free quote.',
     lead: 'A leftover stump can get in the way of a new lawn, planting or paving. County Landscapes offers stump grinding and root removal, including after earlier tree work.',
     imageAlt: 'Established garden with trees and planted borders',
@@ -124,7 +124,7 @@ export const jobs = [
   },
   {
     slug: 'driveway-cleaning', category: 'pressure-washing', name: 'Driveway & patio pressure washing', short: 'Outdoor pressure washing',
-    title: 'Driveway & Patio Pressure Washing Leicestershire | County Landscapes',
+    title: 'Driveway & Patio Cleaning Leicestershire | County Landscapes',
     description: 'Pressure washing for existing driveways and patios across Leicestershire. Discuss the surface, condition and access with County Landscapes. Free quotes.',
     lead: 'Refresh an existing driveway or patio with pressure washing. Tell County Landscapes what the surface is made from and what you would like cleaned.',
     imageAlt: 'Patio paving shown before and after pressure washing',

@@ -69,3 +69,9 @@ h1,h2,h3{font-family:var(--sans);font-weight:700;letter-spacing:-1px}h1{font-siz
 .service-choice-grid a{font-weight:700;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:780px){.service-choice-grid{grid-template-columns:1fr}.service-choice-grid article{padding:20px}}
 
+/* Accessible contact copy on the pale green enquiry panel. */
+.contact .kicker,.contact-copy>p,.contact-copy .fine,.contact-copy .call-note p{color:#394d3b}
+.brand picture{display:block;width:100%}
+.hub-breadcrumbs{margin-bottom:28px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+

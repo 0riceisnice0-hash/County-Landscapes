@@ -14,6 +14,8 @@ The shared document generator provides the SEO architecture used across the site
 
 ## Publish
 
+`presentation.mjs` defines page-specific social-card labels and category search metadata. `npm run assets` rebuilds the favicon/device-icon family, responsive logos, AVIF/WebP photographs and the 30 branded JPEG share cards; this optional authoring step needs Python with Pillow. Generated assets are committed, so the Pages deployment still has no runtime dependencies. `npm run preview:seo` creates a self-contained review artifact under the workspace's `outputs/` directory; it is excluded from the deployed site. Search engines select their final display independently of that illustrative preview.
+
 The workflow in `.github/workflows/pages.yml` builds and deploys pushes to `main`. The live address and canonical origin are https://countylandscape.co.uk/.
 
 Run `npm run check` to check JavaScript syntax, enquiry behaviour, local links, assets and same-page/cross-page anchors, and build `dist/`. Preview with `python -m http.server 4173 --directory dist`.

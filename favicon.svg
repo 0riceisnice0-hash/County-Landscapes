@@ -1,6 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
   <title id="title">County Landscapes</title>
-  <rect width="128" height="128" rx="24" fill="#163b2d"/>
-  <path d="M87 36C80 28 70 24 59 24 36 24 21 42 21 64s15 40 38 40c11 0 21-4 28-12" fill="none" stroke="#f8f7f2" stroke-width="19" stroke-linecap="round"/>
-  <circle cx="96" cy="27" r="10" fill="#dfc66f"/>
+  <rect width="128" height="128" rx="20" fill="#163b2d"/>
+  <circle cx="62" cy="34" r="18" fill="#dfc66f"/>
+  <path d="M15 61 43 36 71 61H62V96H24V61Z" fill="#f8f7f2"/>
+  <path d="M39 70H49V96H39Z" fill="#163b2d"/>
+  <path d="M88 57H96V96H88Z" fill="#f8f7f2"/>
+  <g fill="#f8f7f2"><ellipse cx="90" cy="56" rx="19" ry="20"/><circle cx="79" cy="63" r="18"/><circle cx="101" cy="64" r="18"/></g>
+  <path d="m16 107 26-6 23 5 24-7 24 5" fill="none" stroke="#dfc66f" stroke-width="6" stroke-linejoin="round"/>
 </svg>

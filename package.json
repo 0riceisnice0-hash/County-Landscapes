@@ -3,5 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "scripts": { "build": "node build.mjs", "check": "node --check script.js && node build.mjs && node --test tests/*.test.mjs" }
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node --check script.js && node build.mjs && node --test tests/*.test.mjs",
+    "assets": "node --input-type=module -e \"import {shareCards} from './presentation.mjs'; console.log(JSON.stringify(shareCards))\" | python tools/create-brand-assets.py",
+    "preview:seo": "node tools/preview-search.mjs"
+  }
 }

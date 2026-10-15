@@ -62,7 +62,9 @@ test('favicon files and manifest contain legible square icon sizes', async () =>
   assert.equal(ico.readUInt16LE(2), 1, 'favicon.ico must be an icon');
   assert.ok(ico.readUInt16LE(4) >= 3, 'favicon.ico should include multiple sizes');
   assert.match(await readFile('favicon.svg', 'utf8'), /<svg/);
-  assert.deepEqual(manifest.icons.map(icon => icon.sizes), ['192x192', '512x512']);
+  assert.ok(manifest.icons.some(icon => icon.sizes === '192x192' && icon.purpose === 'any'));
+  assert.ok(manifest.icons.some(icon => icon.sizes === '512x512' && icon.purpose === 'maskable'));
+  assert.ok(manifest.icons.every(icon => icon.purpose !== 'any maskable'), 'maskable artwork needs its own safe-zone icon');
 });
 
 test('indexable pages have unique search titles, descriptions and self canonicals', async () => {

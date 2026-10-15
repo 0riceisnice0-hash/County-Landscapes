@@ -38,8 +38,8 @@ test('verified profile and responsive images are present without review-star sch
   assert.match(business.hasMap, /google\.com\/maps\/place\/County\+landscapes/);
   assert.ok(business.sameAs.includes(business.hasMap));
   assert.match(home, /Read customer feedback on Google/);
-  assert.match(home, /<link rel="preload" as="image" type="image\/webp" imagesrcset=/);
-  assert.match(home, /<picture><source type="image\/webp" srcset=/);
+  assert.match(home, /<link rel="preload" as="image" type="image\/avif"[^>]+fetchpriority="high"/);
+  assert.match(home, /<picture><source type="image\/avif" srcset=/);
   assert.match(home, /fetchpriority="high" loading="eager"/);
   assert.match(home, /decoding="async"[^>]*loading="lazy"/);
   assert.doesNotMatch(home, /aggregateRating|reviewCount|"@type":"Review"/);
