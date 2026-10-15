@@ -15,6 +15,12 @@ for (const page of pages) {
   for (const [, id] of html.matchAll(/href="#([^"]+)"/g)) {
     if (!ids.includes(id)) throw new Error(`Broken anchor #${id} in ${page}`);
   }
+  for (const [, sources] of html.matchAll(/(?:srcset|imagesrcset)="([^"]+)"/g)) {
+    for (const candidate of sources.split(',')) {
+      const image = candidate.trim().split(/\s+/)[0];
+      await access(path.resolve(image));
+    }
+  }
   for (const [, file, id] of html.matchAll(/href="([^"?#]+\.html)(?:\?[^"#]*)?#([^"]+)"/g)) {
     const destination = await readFile(file, 'utf8');
     if (!destination.includes(`id="${id}"`)) throw new Error(`Broken cross-page link ${file}#${id} in ${page}`);

@@ -1,5 +1,15 @@
 # Search visibility and lead tracking
 
+## Update: 15 October 2026
+
+The 15 October Search Console export covers **8 September–13 October** and reports **38 clicks and 293 impressions**. The homepage received 37 clicks, the Leicester page one, and garden maintenance zero. This is an improvement on the 12 clicks and 139 impressions through 28 September, but it is still mainly branded/homepage traffic. The query `driveway concrete market harborough` has 54 impressions and no clicks; the business confirmed it only pressure-washes existing driveways, so we continue to avoid advertising concrete driveway installation.
+
+On 15 October, Search Console showed **both submitted sitemaps successful** (30 page URLs and 28 image-page entries). The Page indexing report, last updated 12 October, showed **3 indexed pages, 27 “Discovered – currently not indexed” pages and one redirect**. The indexed pages were the homepage, Leicester and garden maintenance. Google's report lists no crawl date for the 27 discovered pages. This is a crawl/indexing bottleneck; it is not evidence that Google has evaluated and rejected their content. The live homepage, sitemap and sampled service pages return HTTP 200; HTTP and `www` redirect to the canonical HTTPS host. Breadcrumbs report: 3 valid, 0 invalid.
+
+This release improves the clarity, linking and delivery of the existing pages. It adds verified Google Business Profile identity signals, expands the service hub with practical job-choice guidance, makes town metadata reflect the actual services linked on each page, introduces responsive WebP images and LCP preloading, and replaces ignored sitemap crawl hints with a significant-update date. It does **not** add speculative towns, services, reviews, addresses, project claims or rating markup. The Google Business Profile URL was resolved from the supplied Google share link.
+
+Check Search Console again after Google has processed this release. Prioritise whether the service hub and the highest-intent service URLs move from “Discovered” to “Crawled” or “Indexed”. Repeated sitemap submissions cannot force indexing. The strongest next inputs from the business are genuine project photos and specific, consented job details; those can make the local pages more distinctive than template expansion alone.
+
 ## Baseline: 8–21 September 2026
 
 The Search Console export supplied on 23 September 2026 reports **7 clicks and 85 impressions** across all search queries, with an average position of 7.6. Every reported click landed on the homepage. Five clicks came from the business-name query, `county landscapes` (12 impressions). The non-brand query with the most impressions was `driveway concrete market harborough` (18 impressions, no clicks), but County Landscapes only confirmed driveway pressure washing, so the site does **not** claim concrete driveway installation. These are only two weeks of data from a new site; small position and CTR changes are not reliable trends yet.
